@@ -1,0 +1,10 @@
+[
+  {
+    "id": "atta",
+    "name": "Atta",
+    "slug": "atta",
+    "description": "Fresh Atta",
+    "image": "/images/categories/atta.jpg",
+    "isActive": true
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ORD-249975",
+    "userId": "user_phbw4b",
+    "items": [
+      {
+        "productId": "chakki-atta",
+        "variantId": "chakki-atta-1kg",
+        "quantity": 1,
+        "unitPrice": 60,
+        "subtotal": 60,
+        "productName": "Chakki Atta",
+        "variantName": "1 KG"
+      }
+    ],
+    "address": {
+      "id": "",
+      "userId": "",
+      "label": "Home",
+      "fullAddress": "",
+      "building": "Girnar darshan ",
+      "roomNumber": "203",
+      "landmark": "opp. marutimandir",
+      "locationType": "Home",
+      "latitude": 19.30752909187499,
+      "longitude": 72.85197425481968
+    },
+    "orderType": "ONE_TIME",
+    "schedule": {
+      "type": "ONE_TIME"
+    },
+    "subtotal": 60,
+    "deliveryFee": 50,
+    "total": 110,
+    "paymentStatus": "PENDING",
+    "paymentMethod": "CASH",
+    "status": "CANCELLED",
+    "createdAt": "2026-10-08T16:54:35.371Z",
+    "updatedAt": "2026-10-08T17:06:18.964Z"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "chakki-atta",
+    "categoryId": "atta",
+    "name": "Chakki Atta",
+    "description": "Freshly milled Chakki Atta. Perfect for soft, fluffy rotis every day.",
+    "image": "/images/urban_chakki_atta.jpg",
+    "isActive": true,
+    "variants": [
+      {
+        "id": "chakki-atta-1kg",
+        "name": "1 KG",
+        "weight": 1,
+        "unit": "kg",
+        "price": 60,
+        "sku": "ATT-1KG",
+        "isActive": true
+      },
+      {
+        "id": "chakki-atta-5kg",
+        "name": "5 KG",
+        "weight": 5,
+        "unit": "kg",
+        "price": 280,
+        "sku": "ATT-5KG",
+        "isActive": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "eventId": "evt_j71q7q5ze",
+    "eventName": "add_to_cart",
+    "timestamp": "2026-10-08T16:53:48.693Z",
+    "sessionId": "session_demo",
+    "userId": "user_phbw4b",
+    "page": "/",
+    "metadata": {
+      "productId": "chakki-atta",
+      "variantId": "chakki-atta-1kg",
+      "quantity": 1
+    },
+    "productId": "chakki-atta",
+    "variantId": "chakki-atta-1kg",
+    "quantity": 1
+  }
+]

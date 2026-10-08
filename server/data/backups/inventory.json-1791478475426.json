@@ -1,0 +1,11 @@
+[
+  {
+    "id": "inv_chakki-atta-1kg",
+    "variantId": "chakki-atta-1kg",
+    "stock": 100,
+    "reserved": 0,
+    "lowStockThreshold": 25,
+    "status": "IN_STOCK",
+    "updatedAt": "2026-10-08T16:54:35.367Z"
+  }
+]

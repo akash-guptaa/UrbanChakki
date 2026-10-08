@@ -1,0 +1,26 @@
+[
+  {
+    "id": "del_1791478475373",
+    "orderId": "ORD-249975",
+    "userId": "user_phbw4b",
+    "status": "NOT_ASSIGNED",
+    "assignedTo": null,
+    "addressId": null,
+    "address": {
+      "id": "",
+      "userId": "",
+      "label": "Home",
+      "fullAddress": "",
+      "building": "Girnar darshan ",
+      "roomNumber": "203",
+      "landmark": "opp. marutimandir",
+      "locationType": "Home",
+      "latitude": 19.30752909187499,
+      "longitude": 72.85197425481968
+    },
+    "scheduledDate": "2026-10-08",
+    "estimatedTime": "10:00-18:00",
+    "createdAt": "2026-10-08T16:54:35.373Z",
+    "updatedAt": "2026-10-08T16:54:35.373Z"
+  }
+]
