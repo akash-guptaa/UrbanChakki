@@ -19,7 +19,10 @@ export class BaseRepository<T extends { id: string }> {
   protected filePath: string;
   protected mutex: Mutex;
 
+  private filename: string;
+
   constructor(filename: string) {
+    this.filename = filename;
     // Use /tmp for serverless environments (Netlify/AWS Lambda) because the normal filesystem is read-only
     const isServerless = process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY;
     const baseDir = isServerless ? '/tmp/server/data' : path.join(process.cwd(), 'server', 'data');
@@ -33,7 +36,23 @@ export class BaseRepository<T extends { id: string }> {
       await fs.access(this.filePath);
     } catch {
       await fs.mkdir(path.dirname(this.filePath), { recursive: true });
-      await fs.writeFile(this.filePath, JSON.stringify([]));
+      
+      const isServerless = process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY;
+      let seeded = false;
+      
+      if (isServerless) {
+        try {
+          const sourcePath = path.join(process.cwd(), 'server', 'data', this.filename);
+          await fs.copyFile(sourcePath, this.filePath);
+          seeded = true;
+        } catch (e) {
+          // Source file doesn't exist, ignore
+        }
+      }
+
+      if (!seeded) {
+        await fs.writeFile(this.filePath, JSON.stringify([]));
+      }
     }
   }
 
