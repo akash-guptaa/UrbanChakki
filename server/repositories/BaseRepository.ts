@@ -20,7 +20,10 @@ export class BaseRepository<T extends { id: string }> {
   protected mutex: Mutex;
 
   constructor(filename: string) {
-    this.filePath = path.join(process.cwd(), 'server', 'data', filename);
+    // Use /tmp for serverless environments (Netlify/AWS Lambda) because the normal filesystem is read-only
+    const isServerless = process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY;
+    const baseDir = isServerless ? '/tmp/server/data' : path.join(process.cwd(), 'server', 'data');
+    this.filePath = path.join(baseDir, filename);
     this.mutex = new Mutex();
     this.initFile();
   }
@@ -36,7 +39,11 @@ export class BaseRepository<T extends { id: string }> {
 
   private async createBackup() {
     try {
-      const backupDir = path.join(process.cwd(), 'server', 'data', 'backups');
+      const isServerless = process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY;
+      const backupDir = isServerless 
+        ? path.join('/tmp/server/data', 'backups')
+        : path.join(process.cwd(), 'server', 'data', 'backups');
+        
       await fs.mkdir(backupDir, { recursive: true });
       const backupPath = path.join(backupDir, `${path.basename(this.filePath)}-${Date.now()}.json`);
       await fs.copyFile(this.filePath, backupPath);

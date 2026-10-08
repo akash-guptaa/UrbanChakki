@@ -26,6 +26,8 @@ const repoMap: Record<string, any> = {
   'analytics_events': analyticsRepository
 };
 
+import serverless from 'serverless-http';
+
 // Generic fallback state for simple UI config keys (like current_user_id)
 let genericState: Record<string, any> = {};
 
@@ -60,7 +62,13 @@ app.delete('/api/state/:key', async (req, res) => {
   res.json({ success: true });
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`JSON API Server running on port ${PORT}`);
-});
+// Local dev server
+if (process.env.NODE_ENV !== 'production' && !process.env.NETLIFY) {
+  const PORT = 3001;
+  app.listen(PORT, () => {
+    console.log(`JSON API Server running on port ${PORT}`);
+  });
+}
+
+// Export for Netlify Serverless Functions
+export const handler = serverless(app);

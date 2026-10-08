@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Proxy API requests to Netlify serverless function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# This rule ensures that React Router handles all the routing instead of Netlify returning 404s
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
